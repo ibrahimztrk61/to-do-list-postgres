@@ -1,15 +1,15 @@
-package com.ibrahim.todolistpostgres;
+package com.ibrahim.todolistpostgres.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/hello")
-public class hello {
+@RequestMapping("/users")
+public class UserController {
 
-    @GetMapping
-    public String helloMessage(){
-       return "Hello relational database!";
+    @GetMapping()
+    public String hello(){
+        return "hello";
     }
 }

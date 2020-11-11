@@ -13,6 +13,7 @@ import java.util.List;
 @Setter
 @EqualsAndHashCode(of = {"id"})
 @ToString
+@Builder
 public class User {
 
     @Id

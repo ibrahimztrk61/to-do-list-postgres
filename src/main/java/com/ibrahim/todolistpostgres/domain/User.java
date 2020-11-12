@@ -7,19 +7,18 @@ import java.util.List;
 
 @Entity
 @Table(name = "users")
-@AllArgsConstructor
-@NoArgsConstructor
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode(of = {"id"})
 @ToString
-@Builder
 public class User {
 
     @Id
     @SequenceGenerator(name = "seq_user", allocationSize = 1)
     @GeneratedValue(generator = "seq_user", strategy = GenerationType.SEQUENCE)
-    private String id;
+    private Long id;
 
     @Column(name = "name", length = 50)
     private String name;
@@ -28,6 +27,7 @@ public class User {
     private String surname;
 
     @OneToMany
-    @JoinColumn(name = "user_task_id")
+    @JoinColumn(name = "user_task_id", referencedColumnName = "id")
     private List<Task> tasks;
+
 }

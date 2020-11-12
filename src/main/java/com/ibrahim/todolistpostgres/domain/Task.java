@@ -14,12 +14,13 @@ import java.io.Serializable;
 @Setter
 @EqualsAndHashCode(of = {"id"})
 @ToString
+@Builder
 public class Task implements Serializable {
 
     @Id
     @SequenceGenerator(name = "seq_user_tasks", allocationSize = 1)
     @GeneratedValue(generator = "seq_user_tasks", strategy = GenerationType.SEQUENCE)
-    private String id;
+    private Long id;
 
     @OneToOne
     @JoinColumn(name = "user_task_id")

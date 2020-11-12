@@ -2,9 +2,11 @@ package com.ibrahim.todolistpostgres.controllers;
 
 import com.ibrahim.todolistpostgres.domain.User;
 import com.ibrahim.todolistpostgres.dtos.request.UserRequest;
+import com.ibrahim.todolistpostgres.exceptions.NullUserRequestException;
 import com.ibrahim.todolistpostgres.service.UserServiceImpl;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
-
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -18,10 +20,10 @@ public class UserController {
     }
 
 
-    @PostMapping
-    public User createUser(UserRequest userRequest){
-       User user = userService.createUser(userRequest);
-       return user;
+    @PostMapping("/createUser")
+    @ResponseStatus(HttpStatus.CREATED)
+    public User createUser(@RequestBody @Valid UserRequest userRequest) throws NullUserRequestException  {
+        return userService.createUser(userRequest);
     }
 
     @GetMapping
@@ -29,8 +31,9 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    @DeleteMapping
-    public void deleteUser(String userId){
+    @DeleteMapping("{userId}")
+    @ResponseStatus(HttpStatus.OK)
+    public void deleteUser(@PathVariable Long userId){
         userService.deleteUser(userId);
     }
 

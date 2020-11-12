@@ -22,9 +22,6 @@ public class Task implements Serializable {
     @GeneratedValue(generator = "seq_user_tasks", strategy = GenerationType.SEQUENCE)
     private Long id;
 
-    @OneToOne
-    @JoinColumn(name = "user_task_id")
-    private User user;
 
     @Column(name = "category", length = 100)
     private String category;
@@ -37,4 +34,5 @@ public class Task implements Serializable {
 
     @Column(name = "duration")
     private String duration;
+
 }

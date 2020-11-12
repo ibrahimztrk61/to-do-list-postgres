@@ -27,7 +27,7 @@ public class User {
     private String surname;
 
     @OneToMany
-    @JoinColumn(name = "user_task_id", referencedColumnName = "id")
+    @JoinColumn(name = "task_user_id", referencedColumnName = "id")
     private List<Task> tasks;
 
 }

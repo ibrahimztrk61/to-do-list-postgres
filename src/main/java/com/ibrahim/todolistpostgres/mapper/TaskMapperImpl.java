@@ -25,6 +25,5 @@ public class TaskMapperImpl implements TaskMapper {
                 .duration(taskRequest.getDuration())
                 .taskStatus(TaskStatus.TODO)
                 .build();
-
     }
 }

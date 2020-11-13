@@ -32,7 +32,7 @@ public class TaskController {
         return taskService.findTaskByTaskStatus(taskStatus);
     }
 
-    @PostMapping("/changeTaskStatus/{taskId}")
+    @PatchMapping("/changeTaskStatus/{taskId}")
     public Task changeTaskStatus(@PathVariable Long taskId, @RequestBody TaskStatus taskStatus) throws TaskNotFoundException {
         return taskService.changeTaskStatus(taskId, taskStatus);
     }

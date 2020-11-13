@@ -2,6 +2,7 @@ package com.ibrahim.todolistpostgres.service;
 
 import com.ibrahim.todolistpostgres.domain.Task;
 import com.ibrahim.todolistpostgres.domain.TaskStatus;
+import com.ibrahim.todolistpostgres.domain.User;
 import com.ibrahim.todolistpostgres.dtos.request.TaskRequest;
 import com.ibrahim.todolistpostgres.dtos.request.TaskUpdateRequest;
 import com.ibrahim.todolistpostgres.exceptions.TaskNotFoundException;
@@ -17,15 +18,20 @@ public class TaskServiceImpl implements TaskService {
 
     private final TaskRepository taskRepository;
     private final TaskMapperImpl taskMapper;
+    private final UserServiceImpl userService;
 
-    public TaskServiceImpl(TaskRepository taskRepository, TaskMapperImpl taskMapper) {
+    public TaskServiceImpl(TaskRepository taskRepository, TaskMapperImpl taskMapper, UserServiceImpl userService) {
         this.taskRepository = taskRepository;
         this.taskMapper = taskMapper;
+        this.userService = userService;
     }
 
     @Override
     public Task createTask(TaskRequest taskRequest) {
         Task task = taskMapper.toTask(taskRequest);
+        User user = userService.findUserById(taskRequest.getUserId());
+        //user.getTasks().add(task);
+        task.setUser(user);
         return taskRepository.save(task);
     }
 

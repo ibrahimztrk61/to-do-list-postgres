@@ -1,5 +1,6 @@
 package com.ibrahim.todolistpostgres.domain;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -26,8 +27,9 @@ public class User {
     @Column(name = "surname", length = 50)
     private String surname;
 
-    @OneToMany
-    @JoinColumn(name = "task_user_id", referencedColumnName = "id")
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "user")
+    @JsonManagedReference
+    //@JoinColumn(name = "task_user_id", referencedColumnName = "id")
     private List<Task> tasks;
 
 }

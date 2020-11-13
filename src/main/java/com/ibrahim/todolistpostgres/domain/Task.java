@@ -1,13 +1,14 @@
 package com.ibrahim.todolistpostgres.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "user_tasks")
+@Table(name = "tasks")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
@@ -35,4 +36,8 @@ public class Task implements Serializable {
     @Column(name = "duration")
     private String duration;
 
+    @ManyToOne
+    @JsonBackReference
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
 }

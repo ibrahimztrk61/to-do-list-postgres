@@ -5,6 +5,7 @@ import com.ibrahim.todolistpostgres.dtos.request.UserRequest;
 import com.ibrahim.todolistpostgres.exceptions.NullUserRequestException;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UserService {
 
@@ -14,4 +15,7 @@ public interface UserService {
 
     List<User> getAllUsers();
 
+    User findUserById(Long userId);
+
+    List<User> getUserByName(String userName);
 }

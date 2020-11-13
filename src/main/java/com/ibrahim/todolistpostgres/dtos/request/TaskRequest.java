@@ -10,7 +10,7 @@ import lombok.*;
 public class TaskRequest {
 
     private String id;
-    private String userId;
+    private Long userId;
     private String category;
     private String description;
     private String duration;

@@ -1,6 +1,7 @@
 package com.ibrahim.todolistpostgres.controllers;
 
 import com.ibrahim.todolistpostgres.domain.Task;
+import com.ibrahim.todolistpostgres.domain.TaskStatus;
 import com.ibrahim.todolistpostgres.domain.User;
 import com.ibrahim.todolistpostgres.dtos.request.UserRequest;
 import com.ibrahim.todolistpostgres.exceptions.NullUserRequestException;
@@ -10,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/v1/todolist/users")
@@ -33,6 +35,14 @@ public class UserController {
         return userService.getAllUsers();
     }
 
+    @GetMapping("{userId}")
+    public User findUserById(@PathVariable Long userId) {
+        return userService.findUserById(userId);
+    }
+    @GetMapping("/findUserById/{userName}")
+    public List<User> getUserByName(@PathVariable String userName) {
+        return userService.getUserByName(userName);
+    }
 
     @DeleteMapping("/deleteUser/{userId}")
     @ResponseStatus(HttpStatus.OK)

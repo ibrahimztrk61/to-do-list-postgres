@@ -28,7 +28,7 @@ public class TaskController {
     }
 
     @GetMapping("{taskStatus}")
-    public Optional<List<Task>> findTaskByTaskStatus(@PathVariable TaskStatus taskStatus) {
+    public List<Task> findTaskByTaskStatus(@PathVariable TaskStatus taskStatus) {
         return taskService.findTaskByTaskStatus(taskStatus);
     }
 

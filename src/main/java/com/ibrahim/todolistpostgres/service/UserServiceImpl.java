@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -51,7 +50,6 @@ public class UserServiceImpl implements UserService {
     public List<User> getUserByName(String userName) {
         return userRepository.getUserByName(userName);
     }
-
 
     @Override
     public void deleteUser(Long userId) {

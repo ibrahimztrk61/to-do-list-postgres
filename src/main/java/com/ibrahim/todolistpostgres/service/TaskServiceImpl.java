@@ -58,7 +58,7 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public Optional<List<Task>> findTaskByTaskStatus(TaskStatus taskStatus) {
+    public List<Task> findTaskByTaskStatus(TaskStatus taskStatus) {
         return taskRepository.findTaskByTaskStatus(taskStatus);
     }
 }

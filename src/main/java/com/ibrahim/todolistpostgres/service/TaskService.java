@@ -7,7 +7,6 @@ import com.ibrahim.todolistpostgres.dtos.request.TaskUpdateRequest;
 import com.ibrahim.todolistpostgres.exceptions.TaskNotFoundException;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface TaskService {
     Task createTask(TaskRequest taskRequest);
@@ -16,5 +15,5 @@ public interface TaskService {
 
     Task taskUpdate(Long taskId, TaskUpdateRequest taskUpdateRequest) throws TaskNotFoundException;
 
-    Optional<List<Task>> findTaskByTaskStatus(TaskStatus taskStatus);
+    List<Task> findTaskByTaskStatus(TaskStatus taskStatus);
 }

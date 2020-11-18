@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
         if (userRequest == null) {
             throw new NullUserRequestException();
         }
-        Assert.notNull(userRequest.getName(), "Name space must not be empty!");
+       // Assert.notNull(userRequest.getName(), "Name space must not be empty!");
 
         User user = userMapper.toUser(userRequest);
         System.out.println(" user id: " + userRequest.getId());

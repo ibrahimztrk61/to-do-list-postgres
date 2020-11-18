@@ -11,7 +11,7 @@ import lombok.*;
 @EqualsAndHashCode(of = {"id"})
 public class UserRequest {
 
-    private String id;
+    private Long id;
     @NotNull
     private String name;
     private String surname;

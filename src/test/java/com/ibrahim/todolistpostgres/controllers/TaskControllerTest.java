@@ -161,7 +161,7 @@ class TaskControllerTest {
 
         // When
         when(taskService.taskUpdate(1L, updateRequest)).thenReturn(task);
-        Task controllerTask = taskController.changeTaskDuration(task.getId(), updateRequest);
+        Task controllerTask = taskController.updateTask(task.getId(), updateRequest);
 
         // Then
         verify(taskService).taskUpdate(1L, updateRequest);

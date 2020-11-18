@@ -38,7 +38,7 @@ public class TaskController {
     }
 
     @PostMapping("/TaskUpdate/{taskId}")
-    public Task changeTaskDuration(@PathVariable Long taskId, @RequestBody TaskUpdateRequest taskUpdateRequest) throws TaskNotFoundException {
+    public Task updateTask(@PathVariable Long taskId, @RequestBody TaskUpdateRequest taskUpdateRequest) throws TaskNotFoundException {
         return taskService.taskUpdate(taskId, taskUpdateRequest);
     }
 

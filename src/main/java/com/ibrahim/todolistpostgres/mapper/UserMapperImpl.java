@@ -10,7 +10,6 @@ public class UserMapperImpl implements UserMapper {
     @Override
     public UserRequest toUserRequest(User user) {
         UserRequest userRequest = new UserRequest();
-
         userRequest.setName(user.getName());
         userRequest.setSurname(user.getSurname());
 
@@ -20,7 +19,7 @@ public class UserMapperImpl implements UserMapper {
     @Override
     public User toUser(UserRequest userRequest) {
         User user = new User();
-
+        user.setId(userRequest.getId());
         user.setName(userRequest.getName());
         user.setSurname(userRequest.getSurname());
 
